@@ -1,0 +1,222 @@
+[gd_scene load_steps=7 format=3 uid="uid://jwpjkrj5hrrj"]
+
+[ext_resource type="Script" uid="uid://umclb4yi6073" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://dyanfp08u4lxy" path="res://assets/kenney_ui-pack-scifi/PNG/Grey/Double/button_square_header_small_rectangle.png" id="2_a2258"]
+[ext_resource type="Texture2D" uid="uid://bmlviyvmhu2ud" path="res://assets/kenney_ui-pack-scifi/PNG/Blue/Double/button_square_header_small_rectangle.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://bhoreglleqoxx" path="res://assets/kenney_ui-pack-scifi/PNG/Extra/Double/button_rectangle.png" id="4_a2258"]
+[ext_resource type="Texture2D" uid="uid://c3u0ve3meh1la" path="res://assets/kenney_ui-pack-scifi/PNG/Blue/Double/button_square_header_notch_rectangle_screws.png" id="5_a2258"]
+[ext_resource type="Texture2D" uid="uid://bvx8p6mxmf8uq" path="res://assets/kenney_ui-pack-scifi/PNG/Extra/Double/cursor_a.png" id="6_1xsix"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37p78")
+
+[node name="CurrentScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.29411766, 0.6156863, 0.8235294, 1)
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreSeparator" type="VSeparator" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_top = 24.0
+offset_right = 3.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="HighScoreMessage" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = 65.0
+offset_right = 169.5
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.29411766, 0.6156863, 0.8235294, 1)
+text = "New High Score!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreMessage" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = 11.0
+offset_right = 189.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinnerMessage" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -37.0
+offset_right = 169.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlay" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = 72.0
+offset_right = 242.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_1xsix")
+texture_pressed = ExtResource("2_a2258")
+stretch_mode = 3
+
+[node name="ButtonPlayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = 176.0
+offset_right = 171.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.29411766, 0.6156863, 0.8235294, 1)
+text = "play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveLeft" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_a2258")
+texture_pressed = ExtResource("5_a2258")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="MoveLeftLabel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -56.0
+offset_right = -166.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -0.7853982
+texture = ExtResource("6_1xsix")
+stretch_mode = 3
+
+[node name="MoveRight" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_a2258")
+texture_pressed = ExtResource("5_a2258")
+ignore_texture_size = true
+stretch_mode = 4
+flip_h = true
+
+[node name="MoveRightLabel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 178.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -0.7853982
+texture = ExtResource("6_1xsix")
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="button_down" from="MoveLeft" to="." method="_on_move_left_button_down"]
+[connection signal="button_up" from="MoveLeft" to="." method="_on_move_left_button_up"]
+[connection signal="button_down" from="MoveRight" to="." method="_on_move_right_button_down"]
+[connection signal="button_up" from="MoveRight" to="." method="_on_move_right_button_up"]
+[connection signal="pressed" from="MoveRight" to="." method="_on_button_play_again_pressed"]

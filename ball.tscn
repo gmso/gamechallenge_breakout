@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://de78u6sepvyir"]
+
+[ext_resource type="Script" uid="uid://cjau8psnsg63b" path="res://ball.gd" id="1_x8fbi"]
+[ext_resource type="AudioStream" uid="uid://hg1hj335rkbw" path="res://assets/gameboy-pluck-41265.mp3" id="2_41u45"]
+[ext_resource type="Texture2D" uid="uid://6uv6fnjc3aa1" path="res://assets/kenney_ui-pack-scifi/PNG/Grey/Double/bar_round_small_square.png" id="3_ktgx5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hgol0"]
+radius = 16.0
+
+[node name="Ball" type="CharacterBody2D"]
+motion_mode = 1
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+script = ExtResource("1_x8fbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hgol0")
+
+[node name="TimerAccelerateBall" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="AudioBallHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_41u45")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ktgx5")
+
+[connection signal="timeout" from="TimerAccelerateBall" to="." method="_on_timer_accelerate_ball_timeout"]

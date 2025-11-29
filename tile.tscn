@@ -1,0 +1,118 @@
+[gd_scene load_steps=21 format=3 uid="uid://cer7ajxg5trvq"]
+
+[ext_resource type="Texture2D" uid="uid://cmrcsa7toa3xj" path="res://assets/kenney_ui-pack-scifi/PNG/Blue/Double/bar_square_gloss_small_m.png" id="1_a2t34"]
+[ext_resource type="Script" uid="uid://cmx36s4p3cp5m" path="res://tile.gd" id="1_tfor0"]
+[ext_resource type="Texture2D" uid="uid://darbhivsudctw" path="res://assets/kenney_ui-pack-scifi/PNG/Blue/Double/bar_square_gloss_small_l.png" id="2_tfor0"]
+[ext_resource type="Texture2D" uid="uid://dwnouisdtd03w" path="res://assets/kenney_ui-pack-scifi/PNG/Grey/Double/bar_square_gloss_small_m.png" id="2_tmaxv"]
+[ext_resource type="Texture2D" uid="uid://23kfx2d18who" path="res://assets/kenney_ui-pack-scifi/PNG/Blue/Double/bar_square_gloss_small_r.png" id="3_cpv6t"]
+[ext_resource type="Texture2D" uid="uid://pxyic8wy4kgq" path="res://assets/kenney_ui-pack-scifi/PNG/Green/Double/bar_square_gloss_small_m.png" id="4_k2dl1"]
+[ext_resource type="Texture2D" uid="uid://so3531b430k5" path="res://assets/kenney_ui-pack-scifi/PNG/Red/Double/bar_square_gloss_small_m.png" id="5_qmqxx"]
+[ext_resource type="Texture2D" uid="uid://flsnrf87y1vd" path="res://assets/kenney_ui-pack-scifi/PNG/Yellow/Double/bar_square_gloss_small_m.png" id="6_6wlc4"]
+[ext_resource type="Texture2D" uid="uid://cdevb2tu12i0g" path="res://assets/kenney_ui-pack-scifi/PNG/Grey/Double/bar_square_gloss_small_l.png" id="7_toxkw"]
+[ext_resource type="Texture2D" uid="uid://b162fnkudv0uy" path="res://assets/kenney_ui-pack-scifi/PNG/Green/Double/bar_square_gloss_small_l.png" id="8_s278q"]
+[ext_resource type="Texture2D" uid="uid://h5tw7nf5qslt" path="res://assets/kenney_ui-pack-scifi/PNG/Red/Double/bar_square_gloss_small_l.png" id="10_xgmyf"]
+[ext_resource type="Texture2D" uid="uid://bki2v53wnm72x" path="res://assets/kenney_ui-pack-scifi/PNG/Yellow/Double/bar_square_gloss_small_l.png" id="11_pvrkf"]
+[ext_resource type="Texture2D" uid="uid://dcwmhapq6mjf6" path="res://assets/kenney_ui-pack-scifi/PNG/Green/Double/bar_square_gloss_small_r.png" id="12_77ig6"]
+[ext_resource type="Texture2D" uid="uid://chu7vglb5ofgw" path="res://assets/kenney_ui-pack-scifi/PNG/Grey/Double/bar_square_gloss_small_r.png" id="13_uosvd"]
+[ext_resource type="Texture2D" uid="uid://dcaxv062gwu4r" path="res://assets/kenney_ui-pack-scifi/PNG/Red/Double/bar_square_gloss_small_r.png" id="15_5nv3a"]
+[ext_resource type="Texture2D" uid="uid://br33v7pqbgd7c" path="res://assets/kenney_ui-pack-scifi/PNG/Yellow/Double/bar_square_gloss_small_r.png" id="16_2hmrm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_toxkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tmaxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2dl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_a2t34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qmqxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6wlc4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77ig6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_toxkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s278q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tfor0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xgmyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pvrkf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ruwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_uosvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_77ig6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cpv6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5nv3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2hmrm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w8l7"]
+size = Vector2(32, 64)
+
+[node name="Tile" type="StaticBody2D"]
+script = ExtResource("1_tfor0")
+
+[node name="SpriteMiddle" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_toxkw")
+
+[node name="SpriteLeft" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, 0)
+sprite_frames = SubResource("SpriteFrames_77ig6")
+
+[node name="SpriteRight" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 0)
+sprite_frames = SubResource("SpriteFrames_5ruwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_0w8l7")
+
+[node name="PointsLabel" type="RichTextLabel" parent="."]
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+theme_override_font_sizes/normal_font_size = 22
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

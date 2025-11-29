@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=3 uid="uid://b821myv7hqira"]
+
+[ext_resource type="PackedScene" uid="uid://bx8j7svrtatrd" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://5kew2vksj747" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c1m11f6x5tg7u" path="res://walls.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cipws2lio15ta" path="res://background_parallax.tscn" id="2_efxa6"]
+[ext_resource type="PackedScene" uid="uid://de78u6sepvyir" path="res://ball.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://jwpjkrj5hrrj" path="res://hud.tscn" id="5_7mycd"]
+[ext_resource type="AudioStream" uid="uid://10qdvmcnwu7q" path="res://assets/music/level-one-8-bit-pixel-warriors-chapter-one-415685.mp3" id="6_efxa6"]
+[ext_resource type="AudioStream" uid="uid://c2cg03kurd07" path="res://assets/music/game-start-6104.mp3" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b0rwsv1pi54mj" path="res://tile_array.tscn" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://l0cxtyeh5oc" path="res://assets/music/classic-game-action-negative-3-224421.mp3" id="9_4c57u"]
+[ext_resource type="AudioStream" uid="uid://cbahtd0x422x5" path="res://assets/music/level-up-enhancement-8-bit-retro-sound-effect-153002.mp3" id="9_kek77"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lquwl")
+
+[node name="BackgroundParallax" parent="." instance=ExtResource("2_efxa6")]
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Walls" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="Ball" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="AudioBackground" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_efxa6")
+
+[node name="AudioGameStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5vw27")
+
+[node name="AudioSuccess" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_kek77")
+
+[node name="AudioFailure" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_4c57u")
+
+[node name="TileArray" parent="." instance=ExtResource("8_5vw27")]
+
+[node name="HUD" parent="." instance=ExtResource("5_7mycd")]
+
+[connection signal="bottom_edge_crossed" from="Walls" to="." method="_on_walls_bottom_edge_crossed"]
+[connection signal="collided_with_object" from="Ball" to="TileArray" method="_on_ball_collided_with_object"]
+[connection signal="points_scored" from="TileArray" to="." method="_on_tile_array_points_scored"]
+[connection signal="tiles_cleared" from="TileArray" to="." method="_on_tile_array_tiles_cleared"]
+[connection signal="move_left_updated" from="HUD" to="." method="_on_hud_move_left_updated"]
+[connection signal="move_right_updated" from="HUD" to="." method="_on_hud_move_right_updated"]
+[connection signal="play_button_pressed" from="HUD" to="." method="_on_hud_play_button_pressed"]

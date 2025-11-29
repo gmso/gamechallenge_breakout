@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0rwsv1pi54mj"]
+
+[ext_resource type="Script" uid="uid://br2ojtyyvr7eq" path="res://tile_array.gd" id="1_5oi5n"]
+[ext_resource type="PackedScene" uid="uid://cer7ajxg5trvq" path="res://tile.tscn" id="2_srkw0"]
+
+[node name="TileArray" type="Node2D"]
+script = ExtResource("1_5oi5n")
+tile_scene = ExtResource("2_srkw0")
